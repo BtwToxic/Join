@@ -28,10 +28,8 @@ JOIN_DELAY = {}   # chat_id : seconds
 # 🔐 ADMIN / OWNER CHECK (FINAL)
 # ─────────────────────────────
 async def is_admin(client, chat_id, user_id):
-    async for m in client.get_chat_members(chat_id, filter="administrators"):
-        if m.user and m.user.id == user_id:
-            return True
-    return False
+    member = await client.get_chat_member(chat_id, user_id)
+    return member.status in ("administrator", "creator")
 
 
 # ─────────────────────────────
