@@ -1,7 +1,9 @@
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import ChatJoinRequest
-
+import pyrogram
+print("Library:", pyrogram.__name__)
+print("Version:", pyrogram.__version__)
 # ─────────────────────────────
 # CONFIG
 # ─────────────────────────────
